@@ -19,4 +19,15 @@ Console.WriteLine($"Discount price is: {newProd.Price}");
 
 // Task 2. Examples
 Console.WriteLine();
-Console.WriteLine("Task 1. Examples:");
+Console.WriteLine("Task 2. Examples:");
+
+// Task 3. Examples
+Console.WriteLine();
+Console.WriteLine("Task 3. Examples:");
+
+DecimalNumber number = new DecimalNumber(255);
+
+Console.WriteLine($"Initial Decimal number: {number.Value}");
+Console.WriteLine($"Converted to Binary number: {number.ToBinary()}");
+Console.WriteLine($"Converted to Octal number: {number.ToOctal()}");
+Console.WriteLine($"Converted to ToHexadecimal number: {number.ToHexadecimal()}");

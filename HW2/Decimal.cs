@@ -8,7 +8,27 @@
 
 namespace C_Pro_Practice.HW2;
 
-public class Decimal
+struct DecimalNumber
 {
-    
+ public int Value { get; private set; }
+ 
+ public DecimalNumber(int value)
+ {
+  Value = value;
+ }
+ 
+ public string ToBinary()
+ {
+  return Convert.ToString(Value, 2);
+ }
+ 
+ public string ToOctal()
+ {
+  return Convert.ToString(Value, 8);
+ }
+ 
+ public string ToHexadecimal()
+ {
+  return Convert.ToString(Value, 16).ToUpper();
+ }
 }
