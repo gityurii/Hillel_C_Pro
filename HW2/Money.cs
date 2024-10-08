@@ -1,5 +1,4 @@
-/*
- * Запрограмуйте клас Money (об'єкт класу оперує однією валютою) для роботи з грошима.
+/* Запрограмуйте клас Money (об'єкт класу оперує однією валютою) для роботи з грошима.
  * У класі мають бути передбачені: поле для зберігання цілої частини грошей (долари, євро, гривні тощо)
  * і поле для зберігання копійок (центи, євроценти, копійки тощо)
  * Реалізувати методи виведення суми на екран, задання значень частин
@@ -8,25 +7,53 @@
  * Реалізувати метод, який дозволяє зменшити ціну на задане число.
  * Для кожного з класів реалізувати необхідні методи і поля.
  * Додати iнкапсуляцiю до полiв та методiв якщо треба.
- */
+*/
+
 namespace C_Pro_Practice.HW2;
 
 public class Money
 {
-    public string Name { get; set; }
+    public string CurrencyName { get; set; }
+    public string FractionName { get; set; }
     public int Integer { get; set; }
     public int Fractional { get; set; }
 
     
-    public Money(string name, int integer, int fractional)
+    public Money(string name, string fractionName, int integer, int fractional)
     {
-        Name = name;
+        CurrencyName = name;
+        FractionName = fractionName;
         Integer = integer;
         Fractional = fractional;
     }
 
-    public void ConsolePrintBalance()
+    public override string ToString()
     {
-        Console.WriteLine($"Balance is: {Integer},{Fractional} {Name}");
+        return $"{Integer} {CurrencyName}s and {Fractional} {FractionName}s";
+    }
+
+    public void ConsolePrintAmount()
+    {
+        Console.WriteLine($"{Integer} {CurrencyName}s and {Fractional} {FractionName}s");
+    }
+
+    public void SetNewBalance(int integer, int fractional)
+    {
+        Integer = integer;
+        Fractional = fractional;
+    }
+
+    public void DecreaseBalance(Money value)
+    {
+        Integer -= value.Integer;
+        if (Fractional < value.Fractional)
+        {
+            Integer -= 1;
+            Fractional += 100 - value.Fractional;
+        }
+        else
+        {
+            Fractional -= value.Fractional;
+        }
     }
 }
