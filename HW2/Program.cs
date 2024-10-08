@@ -21,8 +21,19 @@ Console.WriteLine($"Discount price is: {newProd.Price}");
 Console.WriteLine();
 Console.WriteLine("Task 2. Examples:");
 
+List<MusicalInstrument> musicalInstruments = [new Violin(), new Trombone(), new Ukulele(), new Cello()];
+
+foreach (var instrument in musicalInstruments)
+{
+    instrument.Show();
+    instrument.Desc();
+    instrument.Sound();
+    instrument.History();
+    
+    Console.WriteLine();
+}
+
 // Task 3. Examples
-Console.WriteLine();
 Console.WriteLine("Task 3. Examples:");
 
 DecimalNumber number = new DecimalNumber(255);
